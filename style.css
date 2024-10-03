@@ -129,7 +129,19 @@ ul li a:hover #colorful-dot {
 }
 
 .extra-buttons img {
-  padding-right: 30px;
+  filter: invert();
+  background-image: url("./assets/images/discord.svg");
+  margin-right: 15px;
+  margin-left: 15px;
+  transition: filter 0.25s;
+}
+
+.extra-buttons img:hover {
+  cursor: pointer;
+  filter: opacity(0);
+  background-color: var(--blue-accent);
+  background-clip: text;
+  transition: filter 0.3s;
 }
 
 .download-resume p {
@@ -145,8 +157,6 @@ ul li a:hover #colorful-dot {
 
 #quote {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #quote a {

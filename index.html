@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
+    <title>>_Clément</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -58,15 +60,15 @@
           </div>
           <img
             src="assets/images/discord.png"
-            style="filter: invert(); width: 32px; height: 32px"
+            style="width: 32px; height: 32px"
           />
           <img
             src="assets/images/linkedin.png"
-            style="filter: invert(); width: 32px; height: 32px"
+            style="width: 32px; height: 32px"
           />
           <img
             src="assets/images/twitter.png"
-            style="filter: invert(); width: 32px; height: 32px"
+            style="width: 32px; height: 32px"
           />
         </div>
       </div>
@@ -83,7 +85,7 @@
       />
     </div>
     <p id="quote">
-      <a href="#"></a>
+      <a href="#" target="_blank"></a>
     </p>
     <script type="text/javascript">
       const jsonArray = {
@@ -119,11 +121,91 @@
         return Math.floor(Math.random() * (max - min) + min);
       }
       var quoteObj = document.getElementById("quote").childNodes[1];
-      console.log(quoteObj);
       var selRandNbr = randomStartingNumber(0, jsonArray.quotes.length);
 
       quoteObj.href = jsonArray.quotes[selRandNbr].link;
       quoteObj.innerHTML = jsonArray.quotes[selRandNbr].quote;
+    </script>
+    <!-- <script>
+      var str = ">_Clément";
+      var strArray = str.split("");
+      var movingArray = [];
+      for (let i = 0; i <= str.length; i++) {
+        document.title = toString(movingArray.push(strArray[i]));
+        console.log(movingArray);
+      }
+    </script> -->
+    <script>
+      // Utility function to interpolate between two hex colors
+      function lerpColor(color1, color2, factor) {
+        const hexToRgb = (hex) => {
+          let bigint = parseInt(hex.slice(1), 16);
+          return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+        };
+
+        const rgbToHex = (rgb) => {
+          return (
+            "#" +
+            rgb
+              .map((val) => {
+                let hex = val.toString(16);
+                return hex.length === 1 ? "0" + hex : hex;
+              })
+              .join("")
+          );
+        };
+
+        let c1 = hexToRgb(color1);
+        let c2 = hexToRgb(color2);
+
+        let result = c1.map((c, i) => Math.round(c + factor * (c2[i] - c)));
+        return rgbToHex(result);
+      }
+
+      function getAccentColorByTime() {
+        const now = new Date();
+        const hour = now.getHours();
+
+        // Define key colors at certain times of day
+        const colorStops = [
+          { hour: 0, color: "#5a28a6" }, // Midnight: Dark Blue
+          { hour: 8, color: "#fffc90" },
+          { hour: 16, color: "#ff6c28" }, // Evening (6PM): Red-Orange
+          { hour: 24, color: "#5a28a6" }, // Midnight again
+        ];
+
+        // Find the two stops we're currently between
+        let currentStop, nextStop;
+
+        for (let i = 0; i < colorStops.length - 1; i++) {
+          if (hour >= colorStops[i].hour && hour < colorStops[i + 1].hour) {
+            currentStop = colorStops[i];
+            nextStop = colorStops[i + 1];
+            break;
+          }
+        }
+
+        // Factor is how far between the two stops we are (0 to 1)
+        let factor =
+          (hour - currentStop.hour) / (nextStop.hour - currentStop.hour);
+
+        // Interpolate the color between the current and next stop
+        return lerpColor(currentStop.color, nextStop.color, factor);
+      }
+
+      function updateAccentColor() {
+        const accentColor = getAccentColorByTime();
+        document.documentElement.style.setProperty(
+          "--blue-accent",
+          accentColor
+        );
+      }
+
+      // Update the accent color on page load
+      updateAccentColor();
+
+      // Optionally, update every minute to adjust to time changes
+      setInterval(updateAccentColor, 60 * 1000);
     </script>
   </body>
 </html>
