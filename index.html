@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav>
+      <div style="height: 50px">
+        <ul>
+          <li id="logo">
+            <a href="">Clément<span id="colorful-dot">.</span></a>
+          </li>
+          <li><a href="">Accueil</a></li>
+          <li><a href="">Compétences</a></li>
+          <li><a href="">Projets</a></li>
+          <div id="contact-me-btn">
+            <li>
+              <a href="">Contactez-moi</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </nav>
+    <div class="big-block">
+      <div
+        class="introduction"
+        style="height: 500px; max-width: 500px; margin-right: 100px"
+      >
+        <div>
+          <p
+            class="intro-padding"
+            style="color: rgba(255, 255, 255, 1); margin-top: 50px"
+          >
+            - Développeur Front -
+          </p>
+          <p style="font-size: 56px; font-weight: 900">Salut, je suis</p>
+          <p
+            style="color: var(--blue-accent); font-size: 56px; font-weight: 900"
+          >
+            Clément
+          </p>
+          <p
+            class="intro-padding"
+            style="
+              color: rgba(255, 255, 255, 0.5);
+              font-weight: 200;
+              text-align: justify;
+            "
+          >
+            Je débute ma carrière en tant que développeur web specialisé en
+            front.<br />J'excelle en HTML, CSS et JS.
+          </p>
+        </div>
+        <div class="extra-buttons">
+          <div class="download-resume">
+            <p>Téléchargez mon CV</p>
+          </div>
+          <img
+            src="assets/images/discord.png"
+            style="filter: invert(); width: 32px; height: 32px"
+          />
+          <img
+            src="assets/images/linkedin.png"
+            style="filter: invert(); width: 32px; height: 32px"
+          />
+          <img
+            src="assets/images/twitter.png"
+            style="filter: invert(); width: 32px; height: 32px"
+          />
+        </div>
+      </div>
+      <img
+        class="avatar"
+        style="
+          margin-top: 100px;
+          width: 250px;
+          height: 250px;
+          clip-path: circle(50% at 50% 50%);
+          background-color: var(--blue-accent);
+        "
+        src="./assets/images/lucasqr.gif"
+      />
+    </div>
+    <p id="quote">
+      <a href="#"></a>
+    </p>
+    <script type="text/javascript">
+      const jsonArray = {
+        quotes: [
+          {
+            quote: `"Wake the f*ck up, Samurai. We have a city to burn !\" - Johnny Silverhand (Cyberpunk 2077)`,
+            link: "https://www.youtube.com/watch?v=qIcTM8WXFjk",
+          },
+          {
+            quote: `"In search of the Elden ring. Emboldened by the flame of ambition. Someone must extinguish thy flame.\" - Margit, the Fell Omen (Elden Ring)`,
+            link: "https://www.youtube.com/watch?v=8Etm06JZcrU",
+          },
+          {
+            quote: `"Marie Curie invented the theory of radioactivity, the treatment of radioactivity, and dying of radioactivity." - Fact Core (Portal)`,
+            link: "https://youtu.be/l66yxQH-pm4?si=dzo-SaYeReKnbxtd&t=56",
+          },
+          {
+            quote: `“I Don’t Have Time To Explain What I Don’t Have Time To Understand.” - Cayde-6 (Destiny 2)`,
+            link: "https://www.youtube.com/watch?v=D5PHD91SIOo",
+          },
+          {
+            quote: `"Because it’s painful not to pretend, because we’re cowards. Fuck society." - Elliot Alderson (Mr. Robot)`,
+            link: "https://youtu.be/4yKsIdr_PNU?si=ZeHreBXzmXe-E276&t=143",
+          },
+          {
+            quote: `"There'll be cheering and calling. No more squabbling and brawling. When we have the wind in our sails." - 'Becalmed' (Sea of Thieves)`,
+            link: `https://www.youtube.com/watch?v=IW9PlPTErKE`,
+          },
+        ],
+      };
+
+      function randomStartingNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      var quoteObj = document.getElementById("quote").childNodes[1];
+      console.log(quoteObj);
+      var selRandNbr = randomStartingNumber(0, jsonArray.quotes.length);
+
+      quoteObj.href = jsonArray.quotes[selRandNbr].link;
+      quoteObj.innerHTML = jsonArray.quotes[selRandNbr].quote;
+    </script>
+  </body>
+</html>

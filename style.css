@@ -1,0 +1,177 @@
+@font-face {
+  font-family: "Jacquarda";
+  src: url("./assets/fonts/JacquardaBastarda9-Regular.ttf");
+}
+
+@font-face {
+  font-family: "CascadiaCode";
+  src: url("./assets/fonts/CascadiaCode.ttf");
+}
+
+:root {
+  --dark-accent: 23, 23, 23;
+  --blue-accent: rgb(48, 106, 224);
+}
+
+body {
+  overflow: hidden;
+  background-color: #161a1f;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+nav {
+  margin-top: 40px;
+}
+
+nav div {
+  max-height: 50px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  display: flex;
+  width: 60%;
+}
+ul li {
+  font-family: "CascadiaCode";
+  color: white;
+  font-size: 18px;
+  margin: auto;
+}
+
+ul li a:hover {
+  color: var(--blue-accent);
+  transition: color 0.25s;
+}
+
+ul li#logo {
+  font-family: "Jacquarda";
+  font-size: 24px;
+  flex-grow: 4;
+}
+
+ul li a {
+  padding: 15px;
+  transition: color 0.5s;
+}
+
+#contact-me-btn,
+.download-resume {
+  border-radius: 50px;
+  color: var(--blue-accent);
+  border: solid 1px var(--blue-accent);
+  height: max-content;
+  width: max-content;
+  transition: box-shadow 0.25s, background-color 0.25s;
+}
+
+#contact-me-btn a {
+  line-height: 40px;
+  transition: color 0.25s;
+  color: var(--blue-accent);
+}
+
+#contact-me-btn:hover,
+.download-resume:hover {
+  cursor: pointer;
+  background-color: var(--blue-accent);
+  box-shadow: 0 0 20px var(--blue-accent);
+  transition: box-shadow 0.5s, background-color 0.5s;
+}
+
+#contact-me-btn a:hover,
+.download-resume:hover p {
+  color: #161a1f;
+  transition: color 0.5s;
+}
+
+#colorful-dot {
+  color: var(--blue-accent);
+}
+
+ul li a:hover #colorful-dot {
+  animation: rainbowText 1s infinite linear;
+}
+
+.big-block {
+  display: flex;
+  max-width: max-content;
+  margin: auto;
+}
+
+.introduction {
+  font-family: "CascadiaCode";
+}
+
+.introduction p {
+  margin: 0;
+  color: white;
+}
+
+.intro-padding {
+  padding: 8px 0;
+}
+
+.extra-buttons {
+  margin-top: 80px;
+  font-size: 20px;
+  display: flex;
+}
+
+.extra-buttons img {
+  padding-right: 30px;
+}
+
+.download-resume p {
+  line-height: 40px;
+  padding: 0 20px;
+  color: var(--blue-accent);
+  transition: color 0.25s;
+}
+
+.avatar img {
+  position: relative;
+}
+
+#quote {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#quote a {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "CascadiaCode";
+  font-style: italic;
+  font-weight: 100;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: letter-spacing 0.2s, font-weight 0.2s, color 0.2s;
+}
+
+#quote a:hover {
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--blue-accent);
+  transition: letter-spacing 0.5s, font-weight 0.5s, color 0.5s;
+}
+
+@keyframes rainbowText {
+  0% {
+    filter: hue-rotate(0);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
