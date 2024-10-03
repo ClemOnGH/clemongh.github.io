@@ -5,6 +5,11 @@
     <title>>_Clément</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/images/LucarioIcon.ico"
+    />
   </head>
   <body>
     <nav>
@@ -127,17 +132,12 @@
       quoteObj.href = jsonArray.quotes[selRandNbr].link;
       quoteObj.innerHTML = jsonArray.quotes[selRandNbr].quote;
     </script>
-    <!-- <script>
-      var str = ">_Clément";
-      var strArray = str.split("");
-      var movingArray = [];
-      for (let i = 0; i <= str.length; i++) {
-        document.title = toString(movingArray.push(strArray[i]));
-        console.log(movingArray);
-      }
-    </script> -->
+
+    <!-- ================================================================== -->
+    <!-- LE SCRIPT QUI SUIT A ÉTÉ RÉALISÉ PAR CHATGPT. Non, j'ai pas honte. -->
+    <!-- ================================================================== -->
+
     <script>
-      // Utility function to interpolate between two hex colors
       function lerpColor(color1, color2, factor) {
         const hexToRgb = (hex) => {
           let bigint = parseInt(hex.slice(1), 16);
@@ -167,15 +167,13 @@
         const now = new Date();
         const hour = now.getHours();
 
-        // Define key colors at certain times of day
         const colorStops = [
-          { hour: 0, color: "#5a28a6" }, // Midnight: Dark Blue
+          { hour: 0, color: "#5a28a6" },
           { hour: 8, color: "#fffc90" },
-          { hour: 16, color: "#ff6c28" }, // Evening (6PM): Red-Orange
-          { hour: 24, color: "#5a28a6" }, // Midnight again
+          { hour: 16, color: "#ff6c28" },
+          { hour: 24, color: "#5a28a6" },
         ];
 
-        // Find the two stops we're currently between
         let currentStop, nextStop;
 
         for (let i = 0; i < colorStops.length - 1; i++) {
@@ -186,11 +184,9 @@
           }
         }
 
-        // Factor is how far between the two stops we are (0 to 1)
         let factor =
           (hour - currentStop.hour) / (nextStop.hour - currentStop.hour);
 
-        // Interpolate the color between the current and next stop
         return lerpColor(currentStop.color, nextStop.color, factor);
       }
 
@@ -209,10 +205,8 @@
         );
       }
 
-      // Update the accent color on page load
       updateAccentColor();
 
-      // Optionally, update every minute to adjust to time changes
       setInterval(updateAccentColor, 60);
     </script>
   </body>
