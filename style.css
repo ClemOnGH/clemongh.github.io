@@ -130,7 +130,6 @@ ul li a:hover #colorful-dot {
 
 .extra-buttons img {
   filter: invert();
-  background-image: url("./assets/images/discord.svg");
   margin-right: 15px;
   margin-left: 15px;
   transition: filter 0.25s;
@@ -155,8 +154,17 @@ ul li a:hover #colorful-dot {
   position: relative;
 }
 
-#quote {
+#quote,
+#hexAndTime {
   text-align: center;
+}
+
+#hexAndTime {
+  top: 100%;
+  font-family: "CascadiaCode";
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--blue-accent);
 }
 
 #quote a {

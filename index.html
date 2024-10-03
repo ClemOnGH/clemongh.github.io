@@ -87,6 +87,7 @@
     <p id="quote">
       <a href="#" target="_blank"></a>
     </p>
+    <p id="hexAndTime"></p>
     <script type="text/javascript">
       const jsonArray = {
         quotes: [
@@ -194,7 +195,14 @@
       }
 
       function updateAccentColor() {
+        const currentDate = new Date();
+        var currentHours = currentDate.getHours();
+        var currentMinutes = String(currentDate.getMinutes()).padStart(2, "0");
+        var currentSeconds = String(currentDate.getSeconds()).padStart(2, "0");
         const accentColor = getAccentColorByTime();
+        document.getElementById(
+          "hexAndTime"
+        ).innerText = `${currentHours}:${currentMinutes}.${currentSeconds} - ${accentColor}`;
         document.documentElement.style.setProperty(
           "--blue-accent",
           accentColor
@@ -205,7 +213,7 @@
       updateAccentColor();
 
       // Optionally, update every minute to adjust to time changes
-      setInterval(updateAccentColor, 60 * 1000);
+      setInterval(updateAccentColor, 60);
     </script>
   </body>
 </html>
